@@ -27,27 +27,4 @@ collections:
       file : "src/index.md"
       fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Copyright Holder", name: "copyrightHolder", widget: "string"}
-      - {label: "Hero Image", name: "heroImageUrl", widget: "image", allow_multiple: false, choose_url: false}
-      - {label: "Hero Background", name: "heroBackgroundUrl", widget: "image", allow_multiple: false, choose_url: false, required: false}
-      - {label: "Main Message", name: "body", widget: "markdown"}
-      - label: "Links"
-        name: "links"
-        widget: "list"
-        types:
-          - label: "Link"
-            name: "simpleLink"
-            widget: "object"
-            fields:
-              - {label: "Icon", name: "icon", widget: "image",  allow_multiple: false, choose_url: false}
-              - {label: "Title", name: "title", wiget: "string"}
-              - {label: "Url", name: "url", wiget: "string"}
-              - {label: "Text", name: "text", widget: "markdown", required: false}
-          - label: "Youtube Video"
-            name: "youtubeVideo"
-            widget: "object"
-            fields:
-              - label: "Video Url"
-                name: "youtubeVideoUrl"
-                widget: "string"
-                pattern: ['.*\.?youtube\.com\/watch\?v=.+', 'Must be a url to a youtube video. It should look something like "youtube.com/watch\?v=VIDEO_ID_HERE"']
+      
