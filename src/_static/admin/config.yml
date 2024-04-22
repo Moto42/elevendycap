@@ -1,11 +1,12 @@
 local_backend: true
 backend:
+# Gitea settings
   name: gitea
-  app_id: 8d2d82d9-4970-40c2-91c9-1737e8301ed2 # The Client ID provided by Gitea
-  api_root: https://forgejo.bytesandbeans.cloud/api/v1 # API URL of your Gitea instance
-  base_url: https://forgejo.bytesandbeans.cloud # Root URL of your Gitea instance
-  auth_endpoint: https://forgejo.bytesandbeans.cloud/login/oauth/authorize
-  repo: "BytesAndBeans/transicion135"
+  app_id:  # The Client ID provided by Gitea
+  api_root: <GITEA_BASE_URL>/api/v1 # API URL of your Gitea instance
+  base_url: <GITEA_BASE_URL> # Root URL of your Gitea instance
+  auth_endpoint: <GITEA_BASE_URL>/login/oauth/authorize
+  repo: "" # user/reponame
   # optional, defaults to master
   branch: main
 
@@ -26,27 +27,4 @@ collections:
       file : "src/index.md"
       fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Copyright Holder", name: "copyrightHolder", widget: "string"}
-      - {label: "Hero Image", name: "heroImageUrl", widget: "image", allow_multiple: false, choose_url: false}
-      - {label: "Hero Background", name: "heroBackgroundUrl", widget: "image", allow_multiple: false, choose_url: false, required: false}
-      - {label: "Main Message", name: "body", widget: "markdown"}
-      - label: "Links"
-        name: "links"
-        widget: "list"
-        types:
-          - label: "Link"
-            name: "simpleLink"
-            widget: "object"
-            fields:
-              - {label: "Icon", name: "icon", widget: "image",  allow_multiple: false, choose_url: false}
-              - {label: "Title", name: "title", wiget: "string"}
-              - {label: "Url", name: "url", wiget: "string"}
-              - {label: "Text", name: "text", widget: "markdown", required: false}
-          - label: "Youtube Video"
-            name: "youtubeVideo"
-            widget: "object"
-            fields:
-              - label: "Video Url"
-                name: "youtubeVideoUrl"
-                widget: "string"
-                pattern: ['.*\.?youtube\.com\/watch\?v=.+', 'Must be a url to a youtube video. It should look something like "youtube.com/watch\?v=VIDEO_ID_HERE"']
+      

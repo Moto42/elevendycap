@@ -8,6 +8,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.ignores.add('src/_static/');
     eleventyConfig.addPassthroughCopy({"src/_static/": '/'});
 
+    // TODO: #6 Document the shortcodes in the readme
     // Adding my own utility shortcodes
     eleventyConfig.addShortcode("thisYear", function() {
         return new Date().getFullYear();
