@@ -1,11 +1,12 @@
 local_backend: true
 backend:
+# Gitea settings
   name: gitea
-  app_id: 8d2d82d9-4970-40c2-91c9-1737e8301ed2 # The Client ID provided by Gitea
-  api_root: https://forgejo.bytesandbeans.cloud/api/v1 # API URL of your Gitea instance
-  base_url: https://forgejo.bytesandbeans.cloud # Root URL of your Gitea instance
-  auth_endpoint: https://forgejo.bytesandbeans.cloud/login/oauth/authorize
-  repo: "BytesAndBeans/transicion135"
+  app_id:  # The Client ID provided by Gitea
+  api_root: <GITEA_BASE_URL>/api/v1 # API URL of your Gitea instance
+  base_url: <GITEA_BASE_URL> # Root URL of your Gitea instance
+  auth_endpoint: <GITEA_BASE_URL>/login/oauth/authorize
+  repo: "" # user/reponame
   # optional, defaults to master
   branch: main
 
