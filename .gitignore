@@ -1,0 +1,7 @@
+node_modules
+
+# Eleventy Generated Files
+_site
+
+# OS Generated files that don't belong
+.DS_Store

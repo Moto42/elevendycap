@@ -1,0 +1,94 @@
+---
+layout: "1_base.njk"
+---
+{# Header Main Footer #}
+{# this site has no header #}
+{# <header>
+    Header
+</header> #}
+<main class="grow mx-0 my-0 bg-zinc-800 text-zinc-50 max-w-3xl">
+    <div {# heroImage #}
+        {% if heroBackgroundUrl %}
+            style="background: no-repeat url('/images/uploads/woodBG.jpg');"
+        {% endif %}
+    > 
+        <img src="{{heroImageUrl}}"  />
+    </div>  
+    <h1 class="mx-4">{{title}}</h1>
+    <section {# main text #}
+        class="mx-4"
+    >
+        {{content | safe}}
+    </section>  
+    <section {# Links section #}
+        class="mx-4"
+    >
+        <style>
+            {# responsive embedded youtube player hack, doesn't play well with centering in it's column #}
+            .video-container {
+                position: relative;
+                padding-bottom: 56.25%;
+            }
+            .video-container iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+        <h2>Links</h2>
+        {% macro linkEntry(title="",icon="",text="",url="") %}
+        {# Macro that makes each entry in the links section #}
+            <a href="{{url}}">
+            <section
+                class="grid items-center"
+                style="
+                    grid-template-columns: 4rem auto; 
+                    grid-template-rows: max-content max-content;
+                    grid-template-areas: 'icon title' 'nthg text';
+                "
+            >
+                <h3  style="grid-area: title"class="hover:underline" >{{title}}</h3>
+                <img style="grid-area: icon"   src="{{icon}}" alt="">
+                <div style="grid-area: text"  >{{text|safe}}</div>
+            </section>
+            </a>
+        {% endmacro %}
+
+        {% macro videoplayer(url) %}
+        {# Macro that adds a video player to the links section #}
+            <div
+                class="grid items-center"
+                style="
+                    grid-template-columns: 4rem auto; 
+                    grid-template-rows: max-content;
+                    grid-template-areas: 'icon text';
+                "
+            >
+                <div style="grid-area:text" class="">
+                    <div class="video-container max-w-xl flex justify-center">
+                        <iframe
+                            src="https://www.youtube.com/embed/{% getYTVideoId url %}"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope;"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+
+            </div>
+        {% endmacro %}
+
+        {% for link in links %}
+            {% if link.type=="simpleLink" %}
+                {{ linkEntry(link.title,link.icon,link.text,link.url) }}
+            {% elif link.type=="youtubeVideo" %}
+                {{ videoplayer(link.youtubeVideoUrl) }}
+            {% endif %}
+        {% endfor %}
+
+    </section>  
+</main>
+<footer class="text-center py-4 px-2  bg-zinc-800 text-zinc-50 w-full max-w-3xl">
+    Copyright {% thisYear %} {{ copyrightHolder }}
+</footer>
