@@ -15,16 +15,15 @@ jobs:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: Check out repository code
         uses: actions/checkout@v4
-      - name: instal node modules
-        # TODO cache node modules, if it is out bottlneck, it was last time
-        run: npm install
-      - name: Build Site Content
-        run: npm run build
-      - name: Cache new site content
+      - name: Cache site content
         uses: actions/cache@v4
         with:
           path: ./_site
           key: ${{runner.os}}-site-content
+      - name: instal node modules
+        run: npm install
+      - name: Build Site Content
+        run: npm run build
       - name: verify output
         run: cat ${{github.workspace}}/_site/index.html
   Upload-to-Server:
