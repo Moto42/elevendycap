@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   Build-Site-Content:
-    runs-on: node20
+    runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: Check out repository code
