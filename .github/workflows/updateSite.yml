@@ -19,9 +19,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ./_site
-          key: site-content-${{hashFiles('**/_site/*')}}
+          key: site-content-${{hashFiles('**/_site')}}
           restore-keys: |
-            site-content-${{hashFiles('**/_site/*')}}
+            site-content-${{hashFiles('**/_site')}}
             site-content-
       - name: instal node modules
         run: npm install
