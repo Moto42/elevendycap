@@ -19,7 +19,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ./_site
-          key: ${{runner.os}}-site-content
+          key: site-content-${{hashFiles('**/_site/*')}}
+          restore-keys: |
+            site-content-
       - name: instal node modules
         run: npm install
       - name: Build Site Content
@@ -35,7 +37,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ./_site
-          key: ${{runner.os}}-site-content
+          key: site-content-
       - name: verify content was pulled
         run: cat ${{github.workspace}}/_site/index.html
           
