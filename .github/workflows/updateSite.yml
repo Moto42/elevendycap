@@ -1,0 +1,20 @@
+name: Update the Website
+run-name: ${{ github.actor }} has pushed a change to the site.
+on:
+  push:
+    branches:
+      - main
+      # - workflow
+jobs:
+  Build-Site-Content:
+    runs-on: node20
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: instal node modules
+        # TODO cache node modules, if it is out bottlneck, it was last time
+        run: npm install
+      - name: Build Site Content
+        run: npm run build
+      - run: echo "🍏 This job's status is ${{ job.status }}."
