@@ -22,6 +22,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ./_site
+          key: ${{runner.os}}-site-content
       - name: Build Site Content
         run: npm run build
       - name: verify output
