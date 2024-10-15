@@ -33,7 +33,7 @@ jobs:
     needs: Build-Site-Content
     steps: 
       - name: Pull Site Cache
-        # should put the current content of the site in ${{github.workspace}}//_site
+        # should put the current content of the site in ${{github.workspace}}/_site
         uses: actions/cache@v4
         with:
           path: ./_site
