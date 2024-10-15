@@ -19,7 +19,7 @@ jobs:
         # TODO cache node modules, if it is out bottlneck, it was last time
         run: npm install
       - name: Cache new site content
-        uses: cache@v4
+        uses: actions/cache@v4
         with:
           path: ./_site
       - name: Build Site Content
