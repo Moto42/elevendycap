@@ -32,12 +32,13 @@ jobs:
     needs: Build-Site-Content
     steps: 
       - name: Pull Site Cache
+        # should put the current content of the site in ${{github.workspace}}//_site
         uses: actions/cache@v4
         with:
           path: ./_site
           key: ${{runner.os}}-site-content
       - name: verify content was pulled
-        run: ls; ls ./_site
+        run: cat ${{github.workspace}}/_site/index.html
           
 
       
