@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      # - workflow
+      - workflow
 jobs:
   Build-Site-Content:
     runs-on: node20
