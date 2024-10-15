@@ -26,4 +26,4 @@ jobs:
       - name: Build Site Content
         run: npm run build
       - name: verify output
-        run: cat ${{github.workspace}}/_site/index.hmtl
+        run: ls; echo ${PWD}; cat ${{github.workspace}}/_site/index.hmtl
