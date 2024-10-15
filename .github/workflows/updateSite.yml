@@ -18,6 +18,11 @@ jobs:
       - name: instal node modules
         # TODO cache node modules, if it is out bottlneck, it was last time
         run: npm install
+      - name: Cache new site content
+        uses: cache@v4
+        with:
+          path: ./_site
       - name: Build Site Content
         run: npm run build
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: verify output
+        run: cat ./_site/index.hmtl
