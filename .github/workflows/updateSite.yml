@@ -5,6 +5,9 @@ on:
     branches:
       - main
       - workflow
+concurrency:
+  group: deployment
+  cancel-in-progress: true
 jobs:
   Build-Site-Content:
     runs-on: node20
