@@ -26,7 +26,5 @@ jobs:
       - name: Build Site Content
         run: npm run build
       - name: verify output
-        run: echo ${PWD}; ls ${{github.workspace}}/_site
-      - name: thinger
         run: cat ${{github.workspace}}/_site/index.html
       
