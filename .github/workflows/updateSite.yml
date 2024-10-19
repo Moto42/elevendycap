@@ -26,8 +26,6 @@ jobs:
         run: npm install
       - name: Build Site Content
         run: npm run build
-      - name: verify output
-        run: cat ${{github.workspace}}/_site/index.html
   Upload-to-Server:
     runs-on: ubuntu-latest
     needs: Build-Site-Content
@@ -39,7 +37,7 @@ jobs:
         with:
           path: ./_site
           key: site-content-
-      - name: verify content was pulled
+      - name: verify content was pulled\nreplace me with actual work
         run: cat ${{github.workspace}}/_site/index.html
           
 
