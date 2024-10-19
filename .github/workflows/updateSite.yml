@@ -29,16 +29,14 @@ jobs:
         run: npm run build
       - name: verify output
         run: cat ${{github.workspace}}/_site/index.html
-      - name: what is key
-        run: 
-          echo "the key is site-content-${{hashFiles('**/src')}}";
   Upload-to-Server:
     runs-on: ubuntu-latest
     needs: Build-Site-Content
     steps: 
       - name: Pull Site Cache
         # should put the current content of the site in ${{github.workspace}}/_site
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
+        id: sitecontentcache
         with:
           path: ./_site
           key: site-content-
