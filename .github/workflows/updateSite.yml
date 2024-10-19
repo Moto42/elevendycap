@@ -30,8 +30,8 @@ jobs:
       - name: verify output
         run: cat ${{github.workspace}}/_site/index.html
       - name: what is key
-        run: |
-          echo "the key is site-content-${{hashFiles('**/src')}};
+        run: 
+          echo "the key is site-content-${{hashFiles('**/src')}}";
   Upload-to-Server:
     runs-on: ubuntu-latest
     needs: Build-Site-Content
