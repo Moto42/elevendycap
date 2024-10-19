@@ -19,9 +19,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ./_site
-          key: site-content-${{hashFiles('**/_site')}}
+          key: site-content-${{hashFiles('**/src')}}
           restore-keys: |
-            site-content-${{hashFiles('**/_site')}}
+            site-content-${{hashFiles('**/src')}}
             site-content-
       - name: instal node modules
         run: npm install
@@ -29,6 +29,9 @@ jobs:
         run: npm run build
       - name: verify output
         run: cat ${{github.workspace}}/_site/index.html
+      - name: what is key
+        run: |
+          echo "the key is site-content-${{hashFiles('**/src')}};
   Upload-to-Server:
     runs-on: ubuntu-latest
     needs: Build-Site-Content
