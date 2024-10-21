@@ -10,7 +10,9 @@ layout: "1_base.njk"
     Header
 </header>
 <aside class="text-center bg-slate-500 w-full">
-    Left Sidebar
+    {% block sidebar_left %}
+        Left Sidebar
+    {% endblock %}
 </aside>
 <main class="text-center grow bg-slate-400 w-full">
     {% if content %}
@@ -20,7 +22,9 @@ layout: "1_base.njk"
     {% endif %}
 </main>
 <aside class="text-center bg-slate-500 w-full">
-    Right Sidebar
+    {% block sidebar_right %}
+        Right Sidebar
+    {% endblock %}
 </aside>
 <footer class="text-center bg-slate-300 w-full">
     Footer
