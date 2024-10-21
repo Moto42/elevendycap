@@ -1,0 +1,6 @@
+{
+  "image": "node:current-alpine",
+  "features": {
+    "ghcr.io/cirolosapio/devcontainers-features/alpine-git": {}
+  }
+}
