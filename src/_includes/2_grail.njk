@@ -6,10 +6,10 @@ layout: "1_base.njk"
 between, containing left and right # sidebars and a cetral content section. #}
 
 <header class="text-center bg-slate-300 w-full">Header</header>
-<aside class="text-center bg-slate-500 w-full">
-  {% block sidebar_left %} Left Sidebar {% endblock %}
-</aside>
-<div class="flex">
+<div class="flex flex-col grow w-full">
+  <aside class="text-center bg-slate-500">
+    {% block sidebar_left %} Left Sidebar {% endblock %}
+  </aside>
   <main class="text-center grow bg-slate-400 w-full">
     {% if content %} {{ content | safe}} {% else %}
     <h1>Default content of 2_hmf</h1>
