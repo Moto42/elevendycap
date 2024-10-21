@@ -6,7 +6,9 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "ronnidc.nunjucks"
+        "ronnidc.nunjucks",
+        "esbenp.prettier-vscode",
+        "guapibai.nunjucks-prettier"
       ]
     }
   }
