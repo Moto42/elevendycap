@@ -1,31 +1,22 @@
 ---
 layout: "1_base.njk"
 ---
-{# the "Holy grail" layout, 
- # A header and footer, with a center section between, containing left and right
- # sidebars and a cetral content section.
- #}
 
-<header class="text-center bg-slate-300 w-full">
-    Header
-</header>
+{# the "Holy grail" layout, # A header and footer, with a center section
+between, containing left and right # sidebars and a cetral content section. #}
+
+<header class="text-center bg-slate-300 w-full">Header</header>
 <aside class="text-center bg-slate-500 w-full">
-    {% block sidebar_left %}
-        Left Sidebar
-    {% endblock %}
+  {% block sidebar_left %} Left Sidebar {% endblock %}
 </aside>
-<main class="text-center grow bg-slate-400 w-full">
-    {% if content %}
-        {{ content | safe}}
-    {% else %}
-        <h1>Default content of 2_hmf</h1>
+<div class="flex">
+  <main class="text-center grow bg-slate-400 w-full">
+    {% if content %} {{ content | safe}} {% else %}
+    <h1>Default content of 2_hmf</h1>
     {% endif %}
-</main>
-<aside class="text-center bg-slate-500 w-full">
-    {% block sidebar_right %}
-        Right Sidebar
-    {% endblock %}
-</aside>
-<footer class="text-center bg-slate-300 w-full">
-    Footer
-</footer>
+  </main>
+  <aside class="text-center bg-slate-500 w-full">
+    {% block sidebar_right %} Right Sidebar {% endblock %}
+  </aside>
+</div>
+<footer class="text-center bg-slate-300 w-full">Footer</footer>
