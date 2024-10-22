@@ -10,7 +10,7 @@ between, containing left and right # sidebars and a cetral content section. #}
   <aside class="text-center bg-slate-500 flex-none sm:w-60">
     {% block sidebar_left %} Left Sidebar {% endblock %}
   </aside>
-  <main class="text-center grow bg-slate-400 w-full">
+  <main class="text-center grow bg-slate-400">
     {% if content %} {{ content | safe}} {% else %}
     <h1>Default content of 2_hmf</h1>
     {% endif %}
