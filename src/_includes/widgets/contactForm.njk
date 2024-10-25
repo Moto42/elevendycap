@@ -1,21 +1,34 @@
 {#  a simple contact form
  # {% from "widgets/contactForm.njk/" include contactForm %}
  #}
+
+
 {% macro contactForm() %}
 <form class="">
   <h2 class="">Contact Us</h2>
-  <div class="">
+  {% call fieldcontainer() -%}
     <label for="contactForm_subject">Subject</label>
     <input type="text" name="subject" id="contactForm_subject">
-  </div>
-  <div class="">
+  {%- endcall %}
+  {% call fieldcontainer() -%}
+    <label for="contactForm_subject">Subject</label>
+    <input type="text" name="subject" id="contactForm_subject">
+  {%- endcall %}
+  {% call fieldcontainer() -%}
     <label for="contactForm_email">Email</label>
     <input type="email" name="email" id="contactForm_email">
-  </div>
-  <div class="">
+  {%- endcall %}
+  {% call fieldcontainer() -%}
     <label for="contactForm_message">Your Message</label>
     <textarea name="message" id="contactForm_message"></textarea>
-  </div>
+  {%- endcall %}
 </form>
+{% endmacro %}
+
+{# just a macro for the fieldcontainers so we don't have to copypaste the css #}
+{% macro fieldcontainer() %}
+  <div class="">
+    {{caller()}}
+  </div>
 {% endmacro %}
 
