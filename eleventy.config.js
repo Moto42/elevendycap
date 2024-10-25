@@ -16,6 +16,12 @@ module.exports = function (eleventyConfig) {
     return url.split("v=")[1].split("&")[0];
   });
 
+  // eleventy watch files needs this in WSL
+  eleventyConfig.setChokidarConfig({
+    usePolling: true,
+    interval: 500,
+  });
+
   return {
     dir: {
       input: "src",
