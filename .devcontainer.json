@@ -1,5 +1,5 @@
 {
-  "image": "node:current-alpine",
+  "image": "oven/bun:alpine",
   "features": {
     "ghcr.io/cirolosapio/devcontainers-features/alpine-git": {}
   },
@@ -20,6 +20,6 @@
       ]
     }
   },
-  "postCreateCommand": "npm install",
-  "postAttachCommand": "npm run start"
+  "postCreateCommand": "bun install",
+  "postAttachCommand": "bun run start"
 }
