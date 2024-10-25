@@ -1,6 +1,6 @@
-module.exports = function() {
-    return {
-        title: "Site Title",
-        layout: "2_grail.njk",
-    }
-}
+module.exports = function () {
+  return {
+    title: "Site Title",
+    layout: "layouts/2_grail.njk",
+  };
+};
