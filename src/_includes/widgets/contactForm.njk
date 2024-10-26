@@ -1,5 +1,6 @@
 {#  a simple contact form
  # {% from "widgets/contactForm.njk/" include contactForm %}
+ # ⚠️Required the env-var RECAPTCHA_SITE_KEY to be set
  #}
 
 
@@ -22,7 +23,23 @@
     <label for="contactForm_message">Your Message</label>
     <textarea name="message" id="contactForm_message"></textarea>
   {%- endcall %}
-  <button type="submit" class="my-2 rounded-md bg-gray-600 px-2 py-1 text-white">Submit</button>
+
+  <button
+    type="button"
+    class="g-recaptcha my-2 rounded-md bg-gray-600 px-2 py-1 text-white"
+    data-sitekey="{{reCAPTCHA_site_key}}" 
+    data-callback='onSubmit'
+    data-action='submit'>
+    Submit</button>
+  
+  {# reCaptch code #}
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <script>
+  // callback to handle token
+    function onSubmit(token) {
+      document.currentScript.parentElement.submit();
+    }
+  </script>
 </form>
 {% endmacro %}
 
