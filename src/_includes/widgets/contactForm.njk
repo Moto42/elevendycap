@@ -27,13 +27,13 @@
   <button
     type="button"
     class="g-recaptcha my-2 rounded-md bg-gray-600 px-2 py-1 text-white"
-    data-sitekey="{{reCAPTCHA_site_key}}" 
+    data-sitekey="{% envar "RECAPTCHA_SITE_KEY" %}" 
     data-callback='onSubmit'
     data-action='submit'>
     Submit</button>
   
   {# reCaptch code #}
-  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script>
   // callback to handle token
     function onSubmit(token) {
