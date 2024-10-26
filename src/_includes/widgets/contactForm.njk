@@ -27,7 +27,7 @@
 
 {# just a macro for the fieldcontainers so we don't have to copypaste the css #}
 {% macro fieldcontainer() %}
-  <div class="">
+  <div class="flex flex-col *:text-left">
     {{caller()}}
   </div>
 {% endmacro %}
