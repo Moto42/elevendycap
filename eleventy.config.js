@@ -1,5 +1,9 @@
+const dotenv = require("dotenv");
+
 // For passthroughcopy config, see https://www.11ty.dev/docs/copy/
 module.exports = function (eleventyConfig) {
+  dotenv.config();
+
   // while in --serve, do not copy passthroughcopy'ed files, serve them directly.
   eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
 
@@ -14,6 +18,10 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addShortcode("getYTVideoId", function (url) {
     return url.split("v=")[1].split("&")[0];
+  });
+  // get the value of a variable in process.env[varname]
+  eleventyConfig.addShortcode("envar", function (varname) {
+    return process.env[varname];
   });
 
   // eleventy watch files needs this in WSL
