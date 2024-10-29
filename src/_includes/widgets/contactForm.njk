@@ -23,14 +23,7 @@ macro contactForm() %}
   <label for="contactForm_message">Your Message</label>
   <textarea name="message" id="contactForm_message"></textarea>
   {%- endcall %}
-
-  <button
-    type="button"
-    class="g-recaptcha my-2 rounded-md bg-gray-600 px-2 py-1 text-white"
-    data-sitekey="{% envar 'RECAPTCHA_SITE_KEY' %}"
-    data-callback="onSubmit"
-    data-action="submit"
-  >
+  <button type="button" class="g-recaptcha my-2 rounded-md bg-gray-600 px-2 py-1 text-white" data-sitekey="{% envar 'RECAPTCHA_SITE_KEY' %}" data-callback="onSubmit" data-action="submit">
     Submit
   </button>
 
