@@ -1,11 +1,16 @@
 {#  a simple contact form
  # {% from "widgets/contactForm.njk/" include contactForm %}
- # ⚠️Required the env-var RECAPTCHA_SITE_KEY to be set
+ # 
+ # ⚠️ set action with env-vart CONTACT_FORM_ACTION, defaults to '#', CONTACT_FORM_METHOD defaults to 'POST'
+ # ⚠️ Requires the env-var RECAPTCHA_SITE_KEY to be set
+ # 
+ # You will need to update this code to work with your form handling API.
+ # Currently has the code for recaptcha set up. 
  #}
 
 
 {% macro contactForm() %}
-<form class="" action="#">
+<form class="" action="#" method"="POST">
   <h2 class="">Contact Us</h2>
   {% call fieldcontainer() -%}
     <label for="contactForm_subject">Subject</label>
@@ -29,8 +34,10 @@
     class="g-recaptcha my-2 rounded-md bg-gray-600 px-2 py-1 text-white"
     data-sitekey="{% envar "RECAPTCHA_SITE_KEY" %}" 
     data-callback='onSubmit'
-    data-action='submit'>
-    Submit</button>
+    data-action='submit'
+  >
+    Submit
+  </button>
   
   {# reCaptch code #}
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
