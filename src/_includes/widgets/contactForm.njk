@@ -5,7 +5,7 @@ RECAPTCHA_SITE_KEY to be set # # You will need to update this code to work with
 your form handling API. # Currently has the code for recaptcha set up. #} {%
 macro contactForm() %}
 <form
-  class=""
+  class="mx-auto max-w-screen-sm"
   action="{% envar 'CONTACT_FORM_ACTION' | default('#',true) %}"
   method="{% envar 'CONTACT_FORM_METHOD' | default('POST',true) %}"
 >
